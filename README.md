@@ -11,7 +11,7 @@ then, object files and libraries are linked by a `linker` to create an executabl
 
 you can choose to use a makefile, which describes how to build the executable
 
-`g++` is a linux binary that can be used to compile source code on the cli. You can compile a file like this: `g++ -pedantic-errors [source.cpp] -o [executable]`. The `-pedantic-errors` flag removes compiler exetnsions so that your compiler will enforce c++ standards.
+`g++` is a linux binary that can be used to compile source code on the cli. You can compile a file like this: `g++ -pedantic-errors [source.cpp] -o [executable]`. `[source.cpp]` should be a whitespace delimited list of relevant files to be linked. The `-pedantic-errors` flag removes compiler exetnsions so that your compiler will enforce c++ standards.
 
 addition of the `-Werror` flag will show all warnings as errors.
 
@@ -41,9 +41,25 @@ This form of initialization disallows "Narrowing conversions"
 int width = 4.5; // sets width to 4
 int width{ 4.5 }; // error: not all double values fit into int
 ```
-##### Special Operators
+#### Special Operators
 `<<`: Insertion
 `>>`: Extraction
+
+#### Functions
+When a function is called, parameters of a function are created as variables, and then the values of the arguments are copied into the matching parameter (this is called pass by value).
+
+The C++ specification does not specify the order of evaluation of arguments (which may be relevant if you are passing expressions of functions as arguments).
+
+Functions that share an identifier but have different parameters are considered to be distinct functions (function overloading)
+
+##### Forward Declaration
+Forward Declaration allows us to tell the compiler about an identifier before defining it. You use a function prototype to define it:
+```
+int funcName(int someVariable);
+// or alternatively, since they dont require variable names:
+int funcName(int);
+```
+
 
 ### Libraries References
 #### iostream

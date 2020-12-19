@@ -1,8 +1,18 @@
 # include <iostream>
 
-int main() {
+int getUserInput() {
   int userInput = {};
   std::cout << "Enter an integer: ";
   std::cin >> userInput;
-  std::cout << "Double that number is: " << userInput * 2 << "\n";
+  return userInput;
+}
+
+void printDouble(int num) {
+  std::cout << "Double that number is: " << num * 2 << "\n";
+}
+
+int main() {
+  int userInput{ getUserInput() };
+  printDouble(userInput);
+  return 0;
 }
